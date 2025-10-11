@@ -1,45 +1,15 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Django tutor</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
-    <style>
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
+{% block title %}About My Family{% endblock %}
 
-        table {
-            border-collapse: collapse;
-            width: fit-content;
-        }
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/about.css' %}">
+{% endblock %}
 
-        th,
-        td {
-            padding: 8px;
-            text-align: center;
-        }
-
-        th {
-            background-color: gray;
-        }
-
-        .cannot-vote {
-            background-color: #ffcccc;
-            color: #a60000;
-        }
-    </style>
-
-    {% load custom_tags %}
-</head>
-
-<body>
+{% block content %}
+<div class="content-wrapper">
     <h1>Hello, there!</h1>
     <h2>My name is Khang Bui Tran Duy, I'm 20 years old.</h2>
     <hr />
@@ -48,28 +18,24 @@
         I was born in Dong Thap Province, Tan Khanh Trung Village.
         <br />
         My family has 4 peoples. They are:
-        <br />
     </p>
 
     <table>
         <tr>
-            <th>Number of Order</th>
+            <th>No.</th>
             <th>Name</th>
             <th>Date of Birth</th>
             <th>Age</th>
-            <th>Male or Female</th>
+            <th>Gender</th>
             <th>Role</th>
-            <th>Can Vote </th>
+            <th>Can Vote</th>
         </tr>
-        {%for people in peoples%}
+        {% for people in peoples %}
         <tr>
-            <td>{{forloop.counter}}</td>
-
-            <td>{{people.name}}</td>
-
-            <td>{{people.dob}}</td>
-
-            <td>{{people.age}}</td>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ people.name }}</td>
+            <td>{{ people.dob }}</td>
+            <td>{{ people.age }}</td>
             <td>
                 {% if people.name|contains:"Van" %}
                 Female
@@ -77,26 +43,20 @@
                 Male
                 {% endif %}
             </td>
-
-            <td>{{people.role}}</td>
-            <td class="{%if people.age < 18%} cannot-vote {%endif%}">
-                {%if people.age >= 18%}
+            <td>{{ people.role }}</td>
+            <td class="{% if people.age < 18 %}cannot-vote{% endif %}">
+                {% if people.age >= 18 %}
                 👍
-                {%else%}
+                {% else %}
                 👎
-                {%endif%}
+                {% endif %}
             </td>
-
-
         </tr>
-        {%endfor%}
+        {% endfor %}
     </table>
-    {{text | truncatechars:80}}
-    <script>
-        console.log('Hello, Django')
-        var name = 'Duy Khang'
-        console.log(name)
-    </script>
-</body>
-
-</html>
+    
+    <p style="text-align: center; margin-top: 20px; font-style: italic;">
+        {{ text | truncatechars:80 }}
+    </p>
+</div>
+{% endblock %}
