@@ -1,18 +1,39 @@
-<!DOCTYPE html>
-<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
-<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
-<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
-<!--[if gt IE 8]>      <html class="no-js"> <!--<![endif]-->
-<html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        
-    </body>
-</html>
+{% extends 'base.html' %}
+
+{% block title %}Liên hệ - Khang Bui Tran Duy{% endblock %}
+
+{% block content %}
+<div class="contact-card">
+    <img src="https://via.placeholder.com/150" alt="Ảnh đại diện" class="profile-pic">
+    
+    <h1>Bùi Trần Duy Khang</h1>
+    <p class="subtitle">Student at HCMUT | Future Developer</p>
+
+    <ul class="contact-links">
+        <li>
+            <a href="https://www.facebook.com/duykhang812005/" target="_blank" class="link-facebook">
+                <i class="fa-brands fa-facebook"></i>
+                Facebook
+            </a>
+        </li>
+        <li>
+            <a href="tel:+84815594665" class="link-phone">
+                <i class="fa-solid fa-phone"></i>
+                (+84) 815 594 665
+            </a>
+        </li>
+        <li>
+            <a href="mailto:buitranduykhang@gmail.com" class="link-email">
+                <i class="fa-solid fa-envelope"></i>
+                Email Me
+            </a>
+        </li>
+        <li>
+            <a href="https://github.com/khangbkk23" target="_blank" class="link-github">
+                <i class="fa-brands fa-github"></i>
+                GitHub
+            </a>
+        </li>
+    </ul>
+</div>
+{% endblock %}

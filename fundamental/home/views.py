@@ -36,7 +36,10 @@ def about(request):
         'text': 'In my mind, I love my little family very much!'
     }
     
-    return render(request, 'home/index.html', context)
+    return render(request, 'home/about.html', context)
+
+def contact(request):
+    return render(request, "home/contact.html")
 
     
 def success_page(request):

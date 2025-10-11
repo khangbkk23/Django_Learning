@@ -1,0 +1,83 @@
+/* CSS để trang trí */
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #f0f2f5;
+    color: #333;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+.contact-card {
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    transition: transform 0.3s ease;
+}
+
+.contact-card:hover {
+    transform: translateY(-5px);
+}
+
+.profile-pic {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid #0d6efd;
+    margin-bottom: 15px;
+}
+
+h1 {
+    font-size: 2em;
+    margin-bottom: 5px;
+    color: #1c1e21;
+}
+
+.subtitle {
+    font-size: 1.1em;
+    color: #606770;
+    margin-bottom: 30px;
+}
+
+.contact-links {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.contact-links li {
+    margin-bottom: 15px;
+}
+
+.contact-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 20px;
+    text-decoration: none;
+    color: white;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    font-weight: 600;
+}
+
+.contact-links a:hover {
+    transform: scale(1.05);
+}
+
+.contact-links i {
+    font-size: 1.4em;
+    margin-right: 12px;
+}
+
+.link-facebook { background-color: #1877F2; }
+.link-phone { background-color: #25D366; }
+.link-email { background-color: #c71610; }
+.link-github { background-color: #333; }
