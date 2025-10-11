@@ -1,15 +1,26 @@
-/* CSS để trang trí */
+/* Reset cơ bản */
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: 'Poppins', sans-serif;
     background-color: #f0f2f5;
     color: #333;
+}
+
+/* ✅ Thêm wrapper cho nội dung contact để căn giữa riêng nó */
+.page-content {
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    margin: 0;
+    min-height: calc(100vh - 120px); /* trừ chiều cao header + footer */
+    padding-top: 40px;
+    padding-bottom: 40px;
 }
 
+/* Card */
 .contact-card {
     background-color: white;
     padding: 40px;

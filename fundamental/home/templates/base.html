@@ -1,23 +1,37 @@
-{% load static %}
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>{% block title %}My Django Project{% endblock %}</title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-    
+    <meta charset="UTF-8">
+    <title>{% block title %}Website của Khang{% endblock %}</title>
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'home/css/base.css' %}">
     {% block extra_css %}{% endblock %}
 </head>
+
 <body>
-    <main>
-        {% block content %}
-        {% endblock %}
-    </main>
+    <div class="page-wrapper">
+        <header class="site-header">
+            <div class="container">
+                <h2 class="logo">Khang Bui Tran Duy</h2>
+                <nav>
+                    <ul class="nav-links">
+                        <li><a href="{% url 'home:index' %}">Trang Chủ</a></li>
+                        <li><a href="{% url 'home:about' %}">Giới Thiệu</a></li>
+                        <li><a href="{% url 'home:contact' %}">Liên Hệ</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <main>
+            {% block content %}{% endblock %}
+        </main>
+
+        <footer class="site-footer">
+            <p>&copy; {{ now|date:"Y" }} - Website của DiKhang. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
+
 </html>

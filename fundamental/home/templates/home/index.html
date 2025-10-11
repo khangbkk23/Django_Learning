@@ -1,103 +1,18 @@
-{%load static}
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
+{% load static %}
 
-<head>
-    <meta charset="utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <title>Django tutor</title>
-    <meta name="description" content="" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="stylesheet" href="" />
-    <style>
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
+{% block title %}Trang Chủ - Website của Khang{% endblock %}
 
-        table {
-            border-collapse: collapse;
-            width: fit-content;
-        }
+{% block extra_css %}
+    <link rel="stylesheet" href ="{% static 'home/css/index.css' %}"
+{% endblock %}
 
-        th,
-        td {
-            padding: 8px;
-            text-align: center;
-        }
-
-        th {
-            background-color: gray;
-        }
-
-        .cannot-vote {
-            background-color: #ffcccc;
-            color: #a60000;
-        }
-    </style>
-
-    {% load custom_tags %}
-</head>
-
-<body>
-    <h1>Hello, there!</h1>
-    <h2>My name is Khang Bui Tran Duy, I'm 20 years old.</h2>
-    <hr />
-    <p>
-        I'm a student in HCMUT, Vietnam National University.<br />
-        I was born in Dong Thap Province, Tan Khanh Trung Village.
-        <br />
-        My family has 4 peoples. They are:
-        <br />
-    </p>
-
-    <table>
-        <tr>
-            <th>Number of Order</th>
-            <th>Name</th>
-            <th>Date of Birth</th>
-            <th>Age</th>
-            <th>Male or Female</th>
-            <th>Role</th>
-            <th>Can Vote </th>
-        </tr>
-        {%for people in peoples%}
-        <tr>
-            <td>{{forloop.counter}}</td>
-
-            <td>{{people.name}}</td>
-
-            <td>{{people.dob}}</td>
-
-            <td>{{people.age}}</td>
-            <td>
-                {% if people.name|contains:"Van" %}
-                Female
-                {% else %}
-                Male
-                {% endif %}
-            </td>
-
-            <td>{{people.role}}</td>
-            <td class="{%if people.age < 18%} cannot-vote {%endif%}">
-                {%if people.age >= 18%}
-                👍
-                {%else%}
-                👎
-                {%endif%}
-            </td>
-
-
-        </tr>
-        {%endfor%}
-    </table>
-    {{text | truncatechars:80}}
-    <script>
-        console.log('Hello, Django')
-        var name = 'Duy Khang'
-        console.log(name)
-    </script>
-</body>
-
-</html>
+{% block content %}
+<section class="hero-section">
+    <div class="hero-content">
+        <h1>Chào Mừng Đến Website Của Tôi</h1>
+        <p>Đây là nơi tôi chia sẻ về bản thân và các dự án lập trình được xây dựng bằng Django.</p>
+        <a href="{% url 'home:about' %}" class="cta-button">Tìm hiểu thêm</a>
+    </div>
+</section>
+{% endblock %}

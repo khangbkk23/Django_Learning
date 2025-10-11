@@ -41,8 +41,6 @@ def about(request):
 def contact(request):
     return render(request, "home/contact.html")
 
-    
-def success_page(request):
-    print("*" * 10)
-    return HttpResponse(""" <h1> Hey this is a Success page </h1>
-                        """)
+def index(request):
+    context = {'page_title': 'Trang Chủ'}
+    return render(request, 'home/index.html', context=context)

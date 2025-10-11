@@ -36,7 +36,6 @@ body {
     margin: 30px 0;
 }
 
-/* Bảng được thiết kế lại hoàn toàn */
 table {
     width: 100%; /* Bảng chiếm toàn bộ chiều rộng của container */
     border-collapse: collapse; /* Bỏ khoảng cách giữa các viền */
