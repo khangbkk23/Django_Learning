@@ -1,13 +1,14 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Trang Chủ - Website của Khang{% endblock %}
+{% block title %}Trang Chủ{% endblock %}
 
 {% block extra_css %}
     <link rel="stylesheet" href ="{% static 'home/css/index.css' %}"
 {% endblock %}
 
-{% block content %}
+{% block start %}
+
 <section class="hero-section">
     <div class="hero-content">
         <h1>Chào Mừng Đến Website Của Tôi</h1>
@@ -15,4 +16,22 @@
         <a href="{% url 'home:about' %}" class="cta-button">Tìm hiểu thêm</a>
     </div>
 </section>
+    <a href = "/contact/">
+        <button>
+            Contact
+        </button>
+    </a>
+
+    <a href = "/about/">
+        <button>
+            About
+        </button>
+    </a>
+
+    <a href = "/index/">
+        <button>
+            Home
+        </button>
+    </a>
+    
 {% endblock %}

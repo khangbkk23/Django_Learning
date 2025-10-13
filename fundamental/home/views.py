@@ -33,14 +33,17 @@ def about(request):
 
     context = {
         'peoples': peoples,
-        'text': 'In my mind, I love my little family very much!'
+        'text': 'In my mind, I love my little family very much!',
+        'page': 'About'
     }
     
-    return render(request, 'home/about.html', context)
+    return render(request, 'home/about.html', context=context)
 
 def contact(request):
-    return render(request, "home/contact.html")
+    context = {'page' : 'Contact'}
+    return render(request, 'home/contact.html', context=context)
 
 def index(request):
-    context = {'page_title': 'Trang Chủ'}
+    context = {'page_title': 'Trang Chủ',
+               'page': 'Home'}
     return render(request, 'home/index.html', context=context)
