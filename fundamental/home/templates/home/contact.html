@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+{% load static %} {% block title %}Liên hệ - Khang Bui Tran Duy{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'home/css/style.css' %}">
+{% endblock %}
+
+{% block start %}
+<div class="page-content">
+    <div class="contact-card">
+        <img src="{% static 'home/image/avt.jpg' %}" alt="Ảnh đại diện" class="profile-pic">
+
+        <h1>Bùi Trần Duy Khang</h1>
+        <p class="subtitle">Student at Bach khoa HCM (HCMUT) | AI Engineer</p>
+
+        <ul class="contact-links">
+            <li>
+                <a href="https://www.facebook.com/duykhang812005/" target="_blank" class="link-facebook">
+                    <i class="fa-brands fa-facebook"></i>
+                    Facebook
+                </a>
+            </li>
+            <li>
+                <a href="tel:+84815594665" class="link-phone">
+                    <i class="fa-solid fa-phone"></i>
+                    (+84) 815 594 665
+                </a>
+            </li>
+            <li>
+                <a href="mailto:buitranduykhang@gmail.com" class="link-email">
+                    <i class="fa-solid fa-envelope"></i>
+                    Email Me
+                </a>
+            </li>
+            <li>
+                <a href="https://github.com/khangbkk23" target="_blank" class="link-github">
+                    <i class="fa-brands fa-github"></i>
+                    GitHub
+                </a>
+            </li>
+        </ul>
+    </div>
+</div>
+
+{% endblock %}

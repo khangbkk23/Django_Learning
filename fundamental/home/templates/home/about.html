@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load custom_tags %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'home/css/about.css' %}">
+{% endblock %}
+
+{% block start %}
+
+<div class="content-wrapper">
+    <h1>Hello, there!</h1>
+    <h2>My name is Khang Bui Tran Duy, I'm 20 years old.</h2>
+    <hr />
+    <p>
+        I'm a student in HCMUT, Vietnam National University.<br />
+        I was born in Dong Thap Province, Tan Khanh Trung Village.
+        <br />
+        My family has 4 peoples. They are:
+    </p>
+
+    <table>
+        <tr>
+            <th>No.</th>
+            <th>Name</th>
+            <th>Date of Birth</th>
+            <th>Age</th>
+            <th>Gender</th>
+            <th>Role</th>
+            <th>Can Vote</th>
+        </tr>
+        {% for people in peoples %}
+        <tr>
+            <td>{{ forloop.counter }}</td>
+            <td>{{ people.name }}</td>
+            <td>{{ people.dob }}</td>
+            <td>{{ people.age }}</td>
+            <td>
+                {% if people.name|contains:"Van" %}
+                Female
+                {% else %}
+                Male
+                {% endif %}
+            </td>
+            <td>{{ people.role }}</td>
+            <td class="{% if people.age < 18 %}cannot-vote{% endif %}">
+                {% if people.age >= 18 %}
+                👍
+                {% else %}
+                👎
+                {% endif %}
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    
+    <p style="text-align: center; margin-top: 20px; font-style: italic;">
+        {{ text | truncatechars:80 }}
+    </p>
+</div>
+{% endblock %}

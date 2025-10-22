@@ -1,0 +1,48 @@
+.hero-section {
+    /* Sử dụng calc() để tính toán chiều cao: 100% chiều cao màn hình trừ đi chiều cao của header và footer (ước tính 80px) */
+    min-height: calc(100vh - 80px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Nền gradient xanh nhạt */
+    text-align: center;
+    width: 100%;
+    padding: 20px;
+}
+
+.hero-content {
+    max-width: 700px;
+}
+
+.hero-content h1 {
+    font-size: 42px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #2c3e50; /* Đổi thành màu tối để dễ đọc trên nền sáng */
+    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+}
+
+.hero-content p {
+    font-size: 18px;
+    margin-bottom: 20px;
+    color: #34495e; /* Đổi thành màu tối để dễ đọc */
+}
+
+.cta-button {
+    padding: 12px 28px;
+    background: #34495e; /* Đổi màu nền nút cho nổi bật */
+    color: white; /* Đổi màu chữ */
+    text-decoration: none;
+    border-radius: 6px;
+    font-weight: bold;
+    display: inline-block;
+    transition: 0.3s;
+    border: none;
+}
+
+.cta-button:hover {
+    transform: scale(1.05) translateY(-2px);
+    background: #2c3e50;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
