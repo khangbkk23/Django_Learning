@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from .models import *
 # Create your views here.
 def recipes(request):
@@ -18,4 +18,6 @@ def recipes(request):
         
         print(recipe_name,"\n")
         print(recipe_description)
+        
+        return redirect('/recipes')
     return render(request, 'recipes.html', context=context)
