@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block start %}
-<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;" method="post" enctype="multipart/form-data">
-    <form class="col-6 card p-4 shadow-lg bg-white">
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 80vh;">
+    <form class="col-6 card p-4 shadow-lg bg-white" method="POST" enctype="multipart/form-data">
 		{% csrf_token %}
         <h2 class="text-center mb-4 fw-bold">Add recipe you want</h2>
 		<hr>

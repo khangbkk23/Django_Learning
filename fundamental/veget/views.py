@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from .models import *
 # Create your views here.
 def recipes(request):
     context = {'page' : 'Recipes'}
@@ -9,6 +9,13 @@ def recipes(request):
         recipe_image = request.FILES.get('recipe_image')
         recipe_name = data.get('recipe_name')
         recipe_description = data.get('recipe_description')
+        
+        Recipe.objects.create(
+			recipe_name = recipe_name,
+			recipe_description = recipe_description,
+			recipe_image = recipe_image
+		)
+        
         print(recipe_name,"\n")
         print(recipe_description)
     return render(request, 'recipes.html', context=context)
