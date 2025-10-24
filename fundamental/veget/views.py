@@ -23,13 +23,15 @@ def recipes(request):
         return redirect('/recipes')
     
     queryset = Recipe.objects.all()
+    search_term = request.GET.get('search')
     
-    if request.GET.get('search'):
-        print(request.GET.get('search'))
-        queryset = queryset.filter(recipe_name__icontains = request.GET.get('search'))
+    if search_term:
+        queryset = queryset.filter(recipe_name__icontains = search_term)
+        
     context = {
         'page' : 'Recipes',
-        'recipes' : queryset
+        'recipes' : queryset,
+        'search_term': search_term or ''
         }
     return render(request, 'recipes.html', context=context)
 
