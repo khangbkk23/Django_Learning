@@ -28,10 +28,10 @@ urlpatterns = [
     # recipe
     path('recipes/', recipes, name='recipes'),
     path('delete-recipe/<id>/', delete_recipe, name='delete-recipe'),
-    path('update-recipe/<id>/', update_recipe, name='update-recipe')
-    path('login/', login_page, name="login")
+    path('update-recipe/<id>/', update_recipe, name='update-recipe'),
+    path('login/', login_page, name="login"),
+    path('register/', register_page, name="register"),
 ]
-
 if settings.DEBUG:
     urlpatterns += static(
         settings.MEDIA_URL, document_root=settings.MEDIA_ROOT
