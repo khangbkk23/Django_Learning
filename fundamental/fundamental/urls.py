@@ -27,7 +27,8 @@ urlpatterns = [
     path('', include('home.urls')),
     # recipe
     path('recipes/', recipes, name='recipes'),
-    path('delete-recipe/<id>/', delete_recipe, name='delete-recipe')
+    path('delete-recipe/<id>/', delete_recipe, name='delete-recipe'),
+    path('update-recipe/<id>/', update_recipe, name='update-recipe')
 ]
 
 if settings.DEBUG:

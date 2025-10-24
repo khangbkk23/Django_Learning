@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+{% block start %}
+  <div class="container d-flex flex-column justify-content-center align-items-center" style="min-height: 80vh;">
+    <form class="col-6 card p-3 shadow-lg bg-white mt-3 mb-3 rounded-5" method="POST" enctype="multipart/form-data">
+      {% csrf_token %}
+      <h2 class="text-center mb-2 fw-bold">Update recipe you want</h2>
+      <hr />
+      <div class="mb-3">
+        <label for="recipeName" class="form-label">Recipe name</label>
+        <input name="recipe_name" value="{{recipe.recipe_name}}" required type="text" class="form-control" id="recipeName" placeholder="Input the name of food...." />
+      </div>
+
+      <div class="mb-3">
+        <label for="recipeDesc" class="form-label">Food description</label>
+        <textarea name="recipe_description" value="{{recipe.recipe_description}}" class="form-control" id="recipeDesc" rows="3" placeholder="Short description about this recipe...">
+			{{recipe.recipe_description}}
+		</textarea>
+      </div>
+
+      <div class="mb-3">
+        <label for="recipeImg" class="form-label">Food image</label>
+        <input name="recipe_image" type="file" class="form-control" id="recipeImg" />
+      </div>
+
+      <div class="text-center">
+        <button type="submit" class="btn btn-success px-4">Update Recipe</button>
+      </div>
+    </form>
+  </div>
+{% endblock %}
