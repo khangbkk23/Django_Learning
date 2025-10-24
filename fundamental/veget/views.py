@@ -1,5 +1,7 @@
 from django.shortcuts import render, redirect
+from httplib2 import Http
 from .models import *
+from django.http import HttpResponse
 # Create your views here.
 def recipes(request):
     if request.method == "POST":
@@ -26,3 +28,8 @@ def recipes(request):
         'recipes' : query_set
         }
     return render(request, 'recipes.html', context=context)
+
+def delete_recipe(request, id):
+    queryset = Recipe.objects.get(id=id)
+    queryset.delete()
+    return redirect('/recipes/')

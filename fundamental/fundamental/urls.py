@@ -25,7 +25,9 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('home.urls')),
-    path('recipes/', recipes, name='recipes')
+    # recipe
+    path('recipes/', recipes, name='recipes'),
+    path('delete-recipe/<id>/', delete_recipe, name='delete-recipe')
 ]
 
 if settings.DEBUG:
