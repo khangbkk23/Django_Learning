@@ -1,37 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Trang Chủ{% endblock %}
+{% block title %}KelvinCook — Nơi Chia Sẻ Đam Mê Ẩm Thực{% endblock %}
 
 {% block extra_css %}
-    <link rel="stylesheet" href ="{% static 'home/css/index.css' %}"
+<link rel="stylesheet" href="{% static 'home/css/index.css' %}">
 {% endblock %}
 
 {% block start %}
-
 <section class="hero-section">
     <div class="hero-content">
-        <h1>Chào Mừng Đến Website Của Tôi</h1>
-        <p>Đây là nơi tôi chia sẻ về bản thân và các dự án lập trình được xây dựng bằng Django.</p>
-        <a href="{% url 'home:about' %}" class="cta-button">Tìm hiểu thêm</a>
+        <h1>Chào mừng đến với <span>KelvinKhangCook</span></h1>
+        <p>Nơi bạn khám phá, học hỏi và chia sẻ đam mê ẩm thực với cộng đồng yêu nấu ăn.</p>
+        <div class="cta-buttons">
+            <a href="{% url 'register' %}" class="cta-button primary">Tham gia ngay</a>
+            <a href="{% url 'home:about' %}" class="cta-button secondary">Tìm hiểu thêm</a>
+        </div>
     </div>
 </section>
-    <a href = "/contact/">
-        <button>
-            Contact
-        </button>
-    </a>
-
-    <a href = "/about/">
-        <button>
-            About
-        </button>
-    </a>
-
-    <a href = "/index/">
-        <button>
-            Home
-        </button>
-    </a>
-    
 {% endblock %}

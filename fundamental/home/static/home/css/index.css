@@ -1,48 +1,101 @@
 .hero-section {
-    /* Sử dụng calc() để tính toán chiều cao: 100% chiều cao màn hình trừ đi chiều cao của header và footer (ước tính 80px) */
-    min-height: calc(100vh - 80px);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: linear-gradient(to right, #a1c4fd, #c2e9fb); /* Nền gradient xanh nhạt */
+    background: linear-gradient(90deg, #6a11cb, #8f42f5);
+    color: white;
     text-align: center;
-    width: 100%;
-    padding: 20px;
+    padding: 120px 20px;
 }
 
-.hero-content {
-    max-width: 700px;
+.hero-section h1 {
+    font-size: 2.8rem;
+    font-weight: 700;
 }
 
-.hero-content h1 {
-    font-size: 42px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    color: #2c3e50; /* Đổi thành màu tối để dễ đọc trên nền sáng */
-    text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.7);
+.hero-section span {
+    color: #ffd166;
 }
 
-.hero-content p {
-    font-size: 18px;
-    margin-bottom: 20px;
-    color: #34495e; /* Đổi thành màu tối để dễ đọc */
+.hero-section p {
+    font-size: 1.1rem;
+    margin-top: 12px;
+    opacity: 0.9;
+}
+
+.cta-buttons {
+    margin-top: 30px;
 }
 
 .cta-button {
-    padding: 12px 28px;
-    background: #34495e; /* Đổi màu nền nút cho nổi bật */
-    color: white; /* Đổi màu chữ */
+    padding: 12px 26px;
+    border-radius: 30px;
     text-decoration: none;
-    border-radius: 6px;
-    font-weight: bold;
-    display: inline-block;
-    transition: 0.3s;
-    border: none;
+    font-weight: 600;
+    transition: 0.3s ease;
+    margin: 0 10px;
+}
+
+.cta-button.primary {
+    background: white;
+    color: #6a11cb;
+}
+
+.cta-button.secondary {
+    border: 2px solid white;
+    color: white;
 }
 
 .cta-button:hover {
-    transform: scale(1.05) translateY(-2px);
-    background: #2c3e50;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    transform: translateY(-2px);
+    opacity: 0.9;
 }
 
+/* About Section */
+.about-section {
+    padding: 60px 20px;
+    text-align: center;
+    background: #fff;
+}
+
+.about-section h2 {
+    color: #6a11cb;
+    margin-bottom: 20px;
+}
+
+/* Vision Section */
+.vision-section {
+    background: #f7f7fb;
+    padding: 60px 20px;
+}
+
+.vision-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+    justify-content: center;
+}
+
+.vision-item {
+    background: white;
+    padding: 30px;
+    border-radius: 14px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    width: 300px;
+}
+
+.vision-item h3 {
+    color: #8f42f5;
+}
+
+/* Join Section */
+.join-section {
+    text-align: center;
+    padding: 70px 20px;
+    background: linear-gradient(90deg, #8f42f5, #6a11cb);
+    color: white;
+}
+
+.join-section .cta-button {
+    background: white;
+    color: #6a11cb;
+    font-weight: 600;
+    padding: 14px 36px;
+}

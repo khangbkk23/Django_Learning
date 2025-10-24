@@ -70,3 +70,24 @@ body {
     box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
     overflow: hidden;
 }
+/* === Nút trong thanh nav (chắc chắn ghi đè Bootstrap) === */
+.site-header .btn {
+  width: 120px !important;         /* ép kích thước bằng nhau */
+  height: 42px !important;         /* tạo chiều cao đồng bộ */
+  border-radius: 10px !important;  /* bo góc mềm mại */
+  display: flex !important;        /* canh giữa chữ */
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  text-align: center;
+  padding: 0 !important;           /* bỏ padding mặc định của Bootstrap */
+  transition: all 0.25s ease-in-out;
+}
+
+/* Hiệu ứng hover đồng bộ với header */
+.site-header .btn:hover {
+  background: linear-gradient(90deg, #8f42f5, #b76df0);
+  color: white !important;
+  transform: translateY(-1px);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.15);
+}
