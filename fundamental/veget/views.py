@@ -4,6 +4,8 @@ from httplib2 import Http
 from .models import *
 from django.http import HttpResponse
 from django.contrib.auth.models import User
+from django.contrib.auth import authenticate, login
+from django.contrib import messages
 # Create your views here.
 def recipes(request):
     if request.method == "POST":
@@ -63,7 +65,20 @@ def update_recipe(request, id):
     return render(request, 'update_recipes.html', context=context)
 
 def login_page(request):
-    return render(request, 'login.html')
+    if request.method == "POST":
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+
+        user = authenticate(request, username=username, password=password)
+
+        if user is not None:
+            login(request, user)
+            messages.success(request, f"Welcome back, {user.username}!")
+            return redirect('/')
+        else:
+            messages.error(request, "Invalid username or password")
+
+    return render(request, 'login.html', context={'page': 'Login'})
 
 def register_page(request):
     if request.method == "POST":
@@ -77,7 +92,8 @@ def register_page(request):
             return HttpResponse("Passwords do not match")
         
         if User.objects.filter(username=username).exists():
-            return HttpResponse("Username already exists")
+            messages.info(request, 'Username already taken')
+            return redirect('/register/')
 
         user = User.objects.create(
             first_name=first_name,
@@ -90,4 +106,4 @@ def register_page(request):
 
         return redirect('/login/')
     
-    return render(request, 'register.html')
+    return render(request, 'register.html',context={'page':'Register'})
