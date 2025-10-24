@@ -1,7 +1,9 @@
+import re
 from django.shortcuts import render, redirect
 from httplib2 import Http
 from .models import *
 from django.http import HttpResponse
+from django.contrib.auth.models import User
 # Create your views here.
 def recipes(request):
     if request.method == "POST":
@@ -64,4 +66,28 @@ def login_page(request):
     return render(request, 'login.html')
 
 def register_page(request):
+    if request.method == "POST":
+        first_name = request.POST.get('first_name')
+        last_name = request.POST.get('last_name')
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        confirm_password = request.POST.get('confirm_password')
+        
+        if password != confirm_password:
+            return HttpResponse("Passwords do not match")
+        
+        if User.objects.filter(username=username).exists():
+            return HttpResponse("Username already exists")
+
+        user = User.objects.create(
+            first_name=first_name,
+            last_name=last_name,
+            username=username
+        )
+        user.set_password(password)
+        #'pbkdf2_sha256$1000000$nxTINa7goq9PYWG2DCw8fI$gZPFZDgzURCfVicYYj0SXJfvEtd0j0lB+NkeuObHyfE=' mat khau da duoc ma hoa
+        user.save()
+
+        return redirect('/login/')
+    
     return render(request, 'register.html')

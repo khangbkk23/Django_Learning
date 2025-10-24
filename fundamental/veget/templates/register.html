@@ -29,17 +29,29 @@
     <h2 class="text-center mb-2 fw-bold text-light">Register</h2>
 
     <hr class="border-dark opacity-50" />
+	<div class="mb-3">
+
+      <label for="InputFirstName" class="form-label fw-semibold text-light">First name</label>
+      <input name="first_name" required type="text" class="form-control" id="first_name"
+          placeholder="Input your first name here..." />
+    </div>
+
+	<div class="mb-3">
+      <label for="InputLastName class="form-label fw-semibold text-light">Last name</label>
+      <input name="last_name" required type="text" class="form-control" id="last_name"
+          placeholder="Input your last name here..." />
+    </div>
 
     <div class="mb-3">
-      <label for="InputPassword" class="form-label fw-semibold text-light">Username</label>
-      <input name="emailaddress" required type="text" class="form-control" id="emailaddress"
+      <label for="InputUsername" class="form-label fw-semibold text-light">Username</label>
+      <input name="username" required type="text" class="form-control" id="username" name="username"
           placeholder="Input your username here..." />
     </div>
 
     <div class="mb-3">
       <label for="InputPassword" class="form-label fw-semibold text-light">Password</label>
       <input type="password" class="form-control" id="InputPassword"
-          placeholder="Input your password carefully here...">
+          name="password" placeholder="Input your password carefully here...">
       <div class="temp-text fw-light fst-italic">
         We'll never share your login information with anyone!
       </div>
