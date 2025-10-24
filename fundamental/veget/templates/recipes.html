@@ -43,7 +43,7 @@
           <th scope="row">{{ forloop.counter }}</th>
           <td>{{ recipe.recipe_name }}</td>
           <td>{{ recipe.recipe_description }}</td>
-          <td>{{ recipe.recipe_image }}</td>
+          <td><img src ="{{ recipe.recipe_image.url }}" alt="Image" width="150"></td>
         </tr>
         {% endfor %}
       </tbody>
