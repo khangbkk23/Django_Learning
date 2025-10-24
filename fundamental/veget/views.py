@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .models import *
 # Create your views here.
 def recipes(request):
-    context = {'page' : 'Recipes'}
     if request.method == "POST":
         data = request.POST
         
@@ -20,4 +19,10 @@ def recipes(request):
         print(recipe_description)
         
         return redirect('/recipes')
+    
+    query_set = Recipe.objects.all()
+    context = {
+        'page' : 'Recipes',
+        'recipes' : query_set
+        }
     return render(request, 'recipes.html', context=context)
