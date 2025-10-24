@@ -4,7 +4,7 @@ from httplib2 import Http
 from .models import *
 from django.http import HttpResponse
 from django.contrib.auth.models import User
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 # Create your views here.
 def recipes(request):
@@ -107,3 +107,8 @@ def register_page(request):
         return redirect('/login/')
     
     return render(request, 'register.html',context={'page':'Register'})
+
+def logout_page(request):
+    logout(request)
+    messages.success(request, "You have been logged out successfully.")
+    return redirect('/login/')
