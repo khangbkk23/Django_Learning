@@ -59,3 +59,6 @@ def update_recipe(request, id):
         return redirect('/recipes/')
         
     return render(request, 'update_recipes.html', context=context)
+
+def login_page(request):
+    return render(request, 'login.html')
