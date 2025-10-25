@@ -6,7 +6,8 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
-# Create your views here.
+from django.contrib.auth.decorators import login_required
+
 def recipes(request):
     if request.method == "POST":
         data = request.POST
@@ -39,11 +40,16 @@ def recipes(request):
         }
     return render(request, 'recipes.html', context=context)
 
+
+@login_required(login_url='/login/')
 def delete_recipe(request, id):
     queryset = Recipe.objects.get(id=id)
     queryset.delete()
+    messages.success(request, "Recipe deleted successfully.")
     return redirect('/recipes/')
 
+
+@login_required(login_url='/login/')
 def update_recipe(request, id):
     queryset = Recipe.objects.get(id=id)
     context = {'page': 'Update recipes', 'recipe':queryset}
@@ -60,23 +66,29 @@ def update_recipe(request, id):
         if recipe_image:
             queryset.recipe_image = recipe_image
         queryset.save()
-        return redirect('/recipes/')
         
+        messages.success(request, "Recipe updated successfully!") 
+        return redirect('/recipes/')
     return render(request, 'update_recipes.html', context=context)
 
 def login_page(request):
     if request.method == "POST":
         username = request.POST.get('username')
         password = request.POST.get('password')
-
+        
+        if not User.objects.filter(username=username).exists():
+            messages.error(request, "Username does not exist")
+            return render(request, 'login.html', {'page': 'Login'})
+    
         user = authenticate(request, username=username, password=password)
 
         if user is not None:
             login(request, user)
             messages.success(request, f"Welcome back, {user.username}!")
-            return redirect('/')
+            return redirect('/recipes/')
         else:
             messages.error(request, "Invalid username or password")
+            return render(request, 'login.html', {'page': 'Login'})
 
     return render(request, 'login.html', context={'page': 'Login'})
 
